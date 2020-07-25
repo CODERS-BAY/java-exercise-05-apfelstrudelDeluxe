@@ -92,18 +92,16 @@ public class ArrayOperations {
     /**
      * @return the average value of all elements summed up, but without the highest and the lowest value.
      */
-   // SCHAS - Zuerst sortieren und dann vorne und hinten abschneiden
+
+    // Ich möchte von sort() die Stellen 1-3 nehmen und damit average() ausführen. Wie stelle ich das an?
 
     public double trimmedMean() {
-        double mean = 0;
-        for (double mean2 : numbers) {
-            if (mean2 > mean || mean2 < mean) {
-                mean = mean + mean2;
-            }
-        }
-
-        return 0.0;
+        double meanStart = numbers.sort();
+        for (int i = 1; i <= 3; i++) //Da die Werte sortiert sind ist die Position von min und max klar.
+            average();
+        return meanStart / numbers.length;
     }
+
 
 
     /**
