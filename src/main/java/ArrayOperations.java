@@ -94,13 +94,23 @@ public class ArrayOperations {
      */
 
     // Ich möchte von sort() die Stellen 1-3 nehmen und damit average() ausführen. Wie stelle ich das an?
+    //Am einfachsten ist es wenn du die average Methode aufrufst und dann minValue und maxValue davon abziehst. Nicht vergessen, dass du dann 2 Werte weniger hast (für die Division).
 
     public double trimmedMean() {
-        double meanStart = numbers.sort();
-        for (int i = 1; i <= 3; i++) //Da die Werte sortiert sind ist die Position von min und max klar.
+        double mean1 = 0;
+        for (int mean2 : numbers) {
+            mean1 = mean2 + mean2;
+        }
+        return mean1 - maximal - minimal / numbers.length - 2;
+
+
+
+        double mean = 0;
+        for (double i = 0; i < numbers.length && !maxValue() && !minValue; i++) {
             average();
-        return meanStart / numbers.length;
-    }
+        }
+        return mean;
+
 
 
 
