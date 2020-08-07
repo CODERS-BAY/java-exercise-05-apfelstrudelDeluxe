@@ -113,13 +113,17 @@ public class ArrayOperations {
 
 
 
+        average mean = new average();
+        mean.average();
+
+
 
     /**
      * @return the max value of the array. In the array [1,9,3] max would be 9.
      */
     public int maxValue() {
         int maximal = 0;
-        for (int i = 0; i < numbers.length; i++) {// ich muss das Array durchiterieren
+        for (int maximal : numbers) {// ich muss das Array durchiterieren
             if (numbers[i] > maximal)  {
                 maximal = numbers[i];
             }
@@ -127,18 +131,7 @@ public class ArrayOperations {
         return maximal;
         // mit einem Max-Wert starten, durchiterieren und wenn größer, dann ist das das neuen Ma
 
-        /**  andere Variante, wie man den Maximalwert berechnet
-         * ----------------------------------------------------------
-        int maximal = 0;
-        for (int maximal2 : numbers) {
-            if (maximal2 > maximal) {
-                maximal = maximal2;
-            }
-        }
-        return maximal;
-       **/
 
-    }
 
     /**
      * @return the min value of the array. In the array [1,9,3] min would be 1.
