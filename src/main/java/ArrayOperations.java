@@ -32,13 +32,26 @@ public class ArrayOperations {
      * @return the sorted numbers array.
      */
     public int[] sort() {
-        int[] arraySort = numbers;
-        Arrays.sort(arraySort);
 
-        return arraySort;
+        // bubble sort
+        int n = numbers.length;
+        int temp = 0;
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < (n-1); j++) {
+                if (numbers[j] > numbers[j+1]) {
+                    temp = numbers[j];
+                    numbers[j] = numbers[j+1];
+                    numbers[j+1] = temp;
+                }
+            }
+        }
+
+        return numbers;
+
+        //int[] arraySort = numbers;
+        //Arrays.sort(arraySort);
+
     }
-
-    // nummern in array sortieren
 
     /**
      * Choose some sorting algorithm you like.
@@ -46,19 +59,23 @@ public class ArrayOperations {
      *
      * @return the sorted array in reverted order
      * @see <a href="sorting algortihms">http://faculty.cs.niu.edu/~hutchins/csci241/sorting.htm</a>
+     *
+
      */
     public int[] revertSort() {
-        int []  arraySortReverse = numbers;
-        Collections.sort(arraySortReverse, Collections.reverseOrder());
-
-        return arraySortReverse;
+        return reverse(sort());   // --> Verstehe ich nicht. Woher kommt "reverse"?
     }
 
     /**
      * @return the unsorted array in reverted order.
      */
     public int[] reverted() {
-        return null;
+        int[] revertedArray = new int[numbers.length];  // neuer Array mit Länge "numbers array"
+        for (int i = numbers.length - 1; i >= 0; i--) ;
+        {
+            revertedArray[numbers.length - 1 - i] = numbers[i];
+        }
+        return revertedArray;
     }
 
     /**
@@ -87,14 +104,12 @@ public class ArrayOperations {
             }
 
         return sum1 / numbers.length;
-    } //return-werte müssen ersetzt werden, man braucht eine Rechnung
+    }
 
     /**
      * @return the average value of all elements summed up, but without the highest and the lowest value.
      */
 
-    // Ich möchte von sort() die Stellen 1-3 nehmen und damit average() ausführen. Wie stelle ich das an?
-    //Am einfachsten ist es wenn du die average Methode aufrufst und dann minValue und maxValue davon abziehst. Nicht vergessen, dass du dann 2 Werte weniger hast (für die Division).
 
     public double trimmedMean() {
         double mean1 = 0;
@@ -102,20 +117,6 @@ public class ArrayOperations {
             mean1 = mean2 + mean2;
         }
         return mean1 - maximal - minimal / numbers.length - 2;
-
-
-
-        double mean = 0;
-        for (double i = 0; i < numbers.length && !maxValue() && !minValue; i++) {
-            average();
-        }
-        return mean;
-
-
-
-        average mean = new average();
-        mean.average();
-
 
 
     /**
@@ -151,11 +152,5 @@ public class ArrayOperations {
      *   you like.                                               *
      * ***********************************************************/
 
-    private void someHelper() {
 
-    }
-
-    private void someMoreHelper() {
-        // ...
-    }
-}
+        }
